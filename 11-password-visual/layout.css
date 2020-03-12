@@ -1,0 +1,25 @@
+.box{
+  width:410px;
+  font-size:1.3em;
+  height:100px;
+  margin:50px auto;
+
+
+}
+#textt{
+  float:left;
+}
+#password{
+  width:300px;
+  height:30px;
+  float:left;
+    
+}
+#eye{
+  width:32px;
+  height:32px;
+  background-color:gray;
+  float:left;
+  margin-top:2px;
+}
+
