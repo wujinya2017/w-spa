@@ -3,7 +3,7 @@
   font-size:1.3em;
   height:100px;
   position:relative;
-  background-color:red;
+  margin:50px auto; 
 }
 #textt{
   width:80px;

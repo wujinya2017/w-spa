@@ -1,3 +1,4 @@
+/*global $*/
 $(function(){
   var n=$("#password"),
       o=$("#pwd-text"),
@@ -12,7 +13,7 @@ $(function(){
 
     console.log(e.attr("src"));
 
-    e.attr('src','./1111.jpg');
+    $(this).attr('src','./1111.jpg');
 
     console.log(e.attr("src"));
 
