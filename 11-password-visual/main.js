@@ -5,14 +5,22 @@ $(function(){
   n.on("input",function(){
     o.val(n.val())
   }),
+ 
   e.mouseover(function(){
-    console.log(1);
     n.attr('type','hidden');
-    o.attr('type','password');
-    
+    o.attr('type','text');
+
+    console.log(e.attr("src"));
+
+    e.attr('src','./1111.jpg');
+
+    console.log(e.attr("src"));
+
   }),
   e.mouseout(function(){
     n.attr('type','password');
     o.attr('type','hidden');
+
+    e.attr("src","./2222.jpg"); 
   })
 });
