@@ -45,20 +45,30 @@ $(function(){
       return false;
     }
     //validate number  
-    //if( !/^-?(0![1-9]\d*)(\.\d*)?([eE][+-]?\d+) .test($data.val())){
-    //  $msg.html('必须是数值');
-    //  $data.select();
-    //  return false;
-    //}
+    if(!/^-?(0|[1-9]\d*)(\.\d*)?([eE][+-]?\d+)?$/.test($data.val())){
+      $msg.html('必须是数值');
+      $data.select();
+      return false;
+    }
+
     //validate > 0
     if(Number($data.val()) < 0){
       $msg.html('数值必须大于0');
       $data.select();
       return false;
-    }   
+    }  
+
+
+    $msg.html('');
+    return true;
   }
+
+
 });
 
 function roundFractional(x, n) {
   return Math.round(x * Math.pow(10, n)) / Math.pow(10, n);
 }
+
+
+
