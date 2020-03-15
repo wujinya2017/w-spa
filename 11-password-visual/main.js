@@ -11,11 +11,11 @@ $(function(){
     n.attr('type','hidden');
     o.attr('type','text');
 
-    console.log(e.attr("src"));
+    //console.log(e.attr("src"));
 
     $(this).attr('src','./1111.jpg');
 
-    console.log(e.attr("src"));
+    //console.log(e.attr("src"));
 
   }),
   e.mouseout(function(){
