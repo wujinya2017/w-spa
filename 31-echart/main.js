@@ -1,13 +1,13 @@
 $(function(){
-   
-  var myChart = echarts.init(document.getElementById('#main'));
+  
+  var myChart = echarts.init(document.getElementById('main'));
     
     var xData = [],
         yData = [];
 
-    for(var p=0;p=1;p+=0.01){
+    for(var p=0;p<=1;p+=0.01){
        xData.push(p);
-        if(p === 0 || p === 1){
+        if(p === 0 || p===1){
            yData.push(0);
         }else{
            yData.push(-1*p*Math.log2(p)-(1-p)*Math.log2(1-p));
@@ -32,5 +32,6 @@ $(function(){
             smooth: 'true',
             data: yData
         }]
-     };
+    };
+    myChart.setOption(option);
 });
