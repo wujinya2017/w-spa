@@ -19,8 +19,9 @@ var $timerButton = (function(){
     width:'150px'
   })
   function show(conf){
-    $.extend(cfg,conf);//追加到最新配置
+    if (timer) clearInterval(timer);
 
+    $.extend(cfg,conf);//追加到最新配置
     //1.DOM draw
     //第一种添加
     //$(cfg.container).html(html);
