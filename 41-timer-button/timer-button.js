@@ -1,35 +1,28 @@
 var $timerButton = (function(){
-  var html = '<input class="timer-button" type="button" value="同意 (6s)" disabled>';
-  var $btn = $('<input type="button"  disabled>');
-
-  var timer,
-      num,
-      cfg = {
-        container:'body',
-        num : 6,
-        title:'同意',
-        //onClick:function(){
-        //  console.log(1)
-        //}
-      };
-     
-
-  $btn.css({
-    height:'50px',
-    width:'150px'
-  })
-  function show(conf){
-    if (timer) clearInterval(timer);
-
+  var html = '<input  type="button" class="timer-button "value="同意 (6s)" disabled>';
+    
+  function show(conf){ 
+    var $btn = $('<input type="button" disabled>');
+     $btn.css({
+        height:'50px',
+        width:'150px'
+     })
+     var timer,
+          num,
+          cfg = {
+            container:'body',
+            num : 6,
+            title:'同意',
+            onClick:null
+          };
+    $(cfg.container).append($btn);
     $.extend(cfg,conf);//追加到最新配置
     //1.DOM draw
     //第一种添加
     //$(cfg.container).html(html);
     //第二种添加
-    $(cfg.container).append($btn);
     num = cfg.num;
     $btn.val(cfg.title + '(' + cfg.num + 's)');//按钮初始值
-
     timer=setInterval(function(){
         num--;
         if(num === 0){
@@ -40,13 +33,9 @@ var $timerButton = (function(){
           $btn.val(cfg.title + '(' + num + 's)')
         }
     },1000);
-
+    //2.event bind
+    $btn.click(cfg.onClick);
   }
- 
-  $btn.click(function(){
-      cfg.onClick();
-  })
-
   return {
     show : show
   }
@@ -68,3 +57,39 @@ var $timerButton = (function(){
 
 //3.构造函数  
 //function timerBtn(){} var timer = new timerBtn();
+
+
+function TimerButton(){
+   var $btn = $('<input type="button" disabled>');
+     $btn.css({
+        height:'50px',
+        width:'150px'
+   })
+   var timer,
+       num,
+       cfg = {
+            container:'body',
+            num : 6,
+            title:'同意',
+            onClick:null
+       };
+   this.show = function(conf){
+      $(cfg.container).append($btn);
+      $.extend(cfg,conf);
+      num = cfg.num;
+      $btn.val(cfg.title + '(' + cfg.num + 's)');
+      timer=setInterval(function(){
+        num--;
+        if(num === 0){
+          clearInterval(timer);
+          $btn.val(cfg.title);
+          $btn.removeAttr('disabled');
+        }else{
+          $btn.val(cfg.title + '(' + num + 's)')
+        }
+    },1000);
+    $btn.click(cfg.onClick);
+  }
+
+ }
+
