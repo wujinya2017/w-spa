@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>goto dialog测试页面</title>
+  <link rel="stylesheet" href="./dlg-goto.css">
+  <link rel="icon" href="https://i.wangding.in/favicon.ico" sizes="48x48" type="image/png">
+</head>
+<body>
+<input id="popup" type="button" value="弹出对话框">
+<hr>
+<div id="main"></div>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="./dlg-goto.js"></script>
+<script>
+$(function(){ 
+    var $btndlg = $('#popup');
+    $btndlg.click(function(){
+        $dlgGoto.show({
+            num:10,
+            title:'发送验证码',
+            onClick:function(){
+              console.log('点击了定时器')
+            }
+        });
+    })
+    
+})
+</script>
+</body>
+</html>
