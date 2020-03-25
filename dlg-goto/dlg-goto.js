@@ -4,7 +4,7 @@ var $dlgGoto = (function(){
        + '<div class="notepad-dlg-mask notepad-dlg-goto">'
        + '<div class="dialogbox notepad-dlgbox">'
        + '<div class="notepad-dlg-titlebar">'
-       + '<p class="title">转到指定行</p>'
+       + '<span class="title">转到指定行</span>'
        + '<span class="close-btn">✖</span>'
        + '</div>'
        + '<div class="main notepad-dlg-main">'                                                   + '<label for="">行号(L):</label><br>'
@@ -14,11 +14,7 @@ var $dlgGoto = (function(){
        + '</div>'
        + '</div>'
        + '</div>' 
-    );
-     $dlg.css({
-        height:'50px',
-        width:'150px'
-     })
+    ); 
      var  cfg = {
             container:'body',
             num : 6,

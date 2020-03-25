@@ -1,34 +1,50 @@
-
 .notepad-dlg-goto {
-  z-index: 10;
+  z-index: 10; 
 }
-
-.notepad-dlg-goto .dialogbox {
+.dialogbox {
   height: 160px;
   width: 294px;
+  border:1px solid gray;
+  position:relative;
+}
+.notepad-dlg-titlebar{
+  width:294px;
+  height:27px;
+  background-color:white; 
+  position:absolute;
+  top:0;
+  left:0
+}
+.title label{
+  font-size:15px
+}
+.close-btn{
+  float:right;
+  margin-right:5px;
 }
 
-.notepad-dlg-goto .main {
-  height: 127px;
+.main {
+  width:294px;
+  height: 128px;
+  background-color:#f0f0f0;
+  padding-top:5px;
+  position:absolute;
+  top:27px;
 }
-
-.notepad-dlg-goto .main .txt-line-num {
+.txt-line-num {
   box-sizing: border-box;
   height: 30px;
-  margin: 10px 0;
+  margin: 10px;
   width: 266px;
 }
-
-.notepad-dlg-goto .main .btn-goto,
-.notepad-dlg-goto .main .btn-cancel {
-  bottom: 16px;
+.btn-goto,
+.btn-cancel {
+  bottom: 20px;
   position: absolute;
 }
-
-.notepad-dlg-goto .main .btn-goto {
-  right: 108px;
+.btn-goto {
+  right: 100px;
 }
-
-.notepad-dlg-goto .main .btn-cancel {
-  right: 14px;
+.btn-cancel {
+  right: 20px;
 }
