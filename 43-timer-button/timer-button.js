@@ -1,3 +1,4 @@
+/*
 var $timerButton = (function(){
   var html = '<input  type="button" class="timer-button "value="同意 (6s)" disabled>';
     
@@ -40,7 +41,7 @@ var $timerButton = (function(){
     show : show
   }
 }());
-
+*/
 //不用 page load event
 //
 //封装成对象，有几种方案
@@ -58,38 +59,35 @@ var $timerButton = (function(){
 //3.构造函数  
 //function timerBtn(){} var timer = new timerBtn();
 
-
-function TimerButton(){
-   var $btn = $('<input type="button" disabled>');
-     $btn.css({
-        height:'50px',
-        width:'150px'
-   })
-   var timer,
-       num,
-       cfg = {
-            container:'body',
-            num : 6,
-            title:'同意',
-            onClick:null
-       };
-   this.show = function(conf){
-      $(cfg.container).append($btn);
-      $.extend(cfg,conf);
-      num = cfg.num;
-      $btn.val(cfg.title + '(' + cfg.num + 's)');
-      timer=setInterval(function(){
-        num--;
-        if(num === 0){
-          clearInterval(timer);
-          $btn.val(cfg.title);
-          $btn.removeAttr('disabled');
-        }else{
-          $btn.val(cfg.title + '(' + num + 's)')
-        }
-    },1000);
-    $btn.click(cfg.onClick);
+define(['jquery'],function($){
+  function TimerButton(){
+     var $btn = $('<input class="timer-button" type="button" disabled>');
+     var timer,
+         num,
+         cfg = {
+              container:'body',
+              num : 6,
+              title:'同意',
+              onClick:null
+         };
+     this.show = function(conf){
+        $(cfg.container).append($btn);
+        $.extend(cfg,conf);
+        num = cfg.num;
+        $btn.val(cfg.title + '(' + cfg.num + 's)');
+        timer=setInterval(function(){
+          num--;
+          if(num === 0){
+            clearInterval(timer);
+            $btn.val(cfg.title);
+            $btn.removeAttr('disabled');
+          }else{
+            $btn.val(cfg.title + '(' + num + 's)')
+          }
+      },1000);
+      $btn.click(cfg.onClick);
+    }
   }
-
- }
+  return TimerButton;
+});
 
